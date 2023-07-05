@@ -16,16 +16,15 @@ function App() {
   const saveThemeInDB = useCallback(async (theme) => {
     try {
       const userToken = JSON.parse(localStorage.getItem("token")) || token;
-      console.log(
-        "saveThemeIndb + userToken==>",
-        localStorage.getItem("token")
+      const res = await axios.post(
+        "https://sapiensassignment-backend.onrender.com/api/users/setTheme",
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+          body: JSON.stringify({ theme: theme }),
+        }
       );
-      const res = await axios.post("http://localhost:5000/api/users/setTheme", {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-        body: JSON.stringify({ theme: theme }),
-      });
       console.log(res);
     } catch (err) {
       console.log(err);
@@ -36,7 +35,7 @@ function App() {
     try {
       const userToken = JSON.parse(localStorage.getItem("token"));
       const response = await axios.post(
-        "http://localhost:5000/api/users/profile",
+        "https://sapiensassignment-backend.onrender.com/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${userToken}`,

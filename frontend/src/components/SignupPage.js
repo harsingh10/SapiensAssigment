@@ -15,7 +15,10 @@ const LoginPage = () => {
     };
 
     axios
-      .post("http://localhost:5000/api/users/signUp", user)
+      .post(
+        "https://sapiensassignment-backend.onrender.com/api/users/signUp",
+        user
+      )
       .then((response) => {
         console.log(response);
         navigate("/login");

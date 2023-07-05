@@ -15,7 +15,7 @@ const HomePage = (props) => {
     console.log("here");
     return <LoginPage handleChange={handleChange} setToken={setToken} />;
   }
-  
+
   let optionsReal = [];
   Object.entries(theme).forEach(([key, value]) => {
     optionsReal.push({

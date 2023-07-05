@@ -19,7 +19,10 @@ const LoginPage = (props) => {
     };
 
     axios
-      .post("http://localhost:5000/api/users/login", user)
+      .post(
+        "https://sapiensassignment-backend.onrender.com/api/users/login",
+        user
+      )
       .then((response) => {
         handleChange({ label: response.data.theme });
         setToken(response.data.token);
@@ -33,7 +36,6 @@ const LoginPage = (props) => {
       });
   };
 
-  
   return (
     <div className="login-form">
       <div className="form-submit">
